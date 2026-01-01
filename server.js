@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use( cors({
     origin: [
       "http://localhost:5173",
-       "https://task-app-front-end-three.vercel.app", 
+       "https://task-app-front-end-one.vercel.app", 
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
