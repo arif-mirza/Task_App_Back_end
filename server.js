@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use( cors({
     origin: [
       "http://localhost:5173",
-       "https://task-app-front-end-three.vercel.app/", 
+       "https://task-app-front-end-three.vercel.app", 
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
@@ -41,3 +41,5 @@ app.use('/api/tasks', taskRoutes);
 
 const PORT = process.env.PORT || 5000;
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+export default app;
