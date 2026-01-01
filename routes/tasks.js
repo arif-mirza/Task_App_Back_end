@@ -1,7 +1,8 @@
-const express = require('express');
+
+import express from 'express';
 const router = express.Router();
-const auth = require('../middleware/auth');
-const Task = require('../models/Task');
+import auth from '../middleware/auth.js';
+import Task from '../models/Task.js';
 
 // ALL TASKS
 router.get('/', auth, async (req, res) => {
@@ -62,4 +63,4 @@ router.delete('/:id', auth, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
