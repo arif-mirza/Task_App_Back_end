@@ -8,8 +8,19 @@ import taskRoutes from "./routes/tasks.js";
 dotenv.config();
 
 const app = express();
+
+// Middleware
 app.use(express.json());
-app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use( cors({
+    origin: [
+      "http://localhost:5173",
+       "https://task-app-front-end-three.vercel.app/", 
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }));
 
 console.log("Main Server - Environment Variables Check:");
 console.log("PORT:", process.env.PORT);
@@ -29,4 +40,4 @@ app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
