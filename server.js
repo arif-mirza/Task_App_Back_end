@@ -19,7 +19,7 @@ app.use( cors({
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
   }));
 
 console.log("Main Server - Environment Variables Check:");
@@ -35,9 +35,9 @@ try {
   process.exit(1);
 }
 
-app.get("/", (req, res) => {
-  res.send("task app is running...");
-});
+// app.get("/", (req, res) => {
+//   res.send("task app is running...");
+// });
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
